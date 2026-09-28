@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productivity Heatmap</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Productivity Heatmap</h1>
+        <p class="subtitle">Enter what you did each day and see it on the map below.</p>
+
+        <table class="stats">
+            <tr>
+                <td>Current streak</td>
+                <td id="streak">0 days</td>
+                <td>Best streak</td>
+                <td id="bestStreak">0 days</td>
+            </tr>
+            <tr>
+                <td>Study total</td>
+                <td id="studyTotal">0 hrs</td>
+                <td>Coding total</td>
+                <td id="codingTotal">0 hrs</td>
+            </tr>
+            <tr>
+                <td>DSA problems</td>
+                <td id="dsaTotal">0</td>
+                <td>Average score</td>
+                <td id="avgScore">0%</td>
+            </tr>
+        </table>
+
+        <h2>Last 12 months</h2>
+        <div id="heatmap"></div>
+
+        <div class="legend">
+            Less
+            <span class="box" data-level="0"></span>
+            <span class="box" data-level="1"></span>
+            <span class="box" data-level="2"></span>
+            <span class="box" data-level="3"></span>
+            <span class="box" data-level="4"></span>
+            More
+        </div>
+        <p id="info">Click a square to see that day.</p>
+
+        <h2>Add activity</h2>
+        <div class="form">
+
+            <label>Date
+                <input type="date" id="date">
+            </label>
+
+            <label>Study (hours)
+                <input type="number" id="study" min="0" step="0.5">
+            </label>
+
+            <label>Coding (hours)
+                <input type="number" id="coding" min="0" step="0.5">
+            </label>
+
+            <label>DSA problems
+                <input type="number" id="dsa" min="0" step="1">
+            </label>
+
+            <label>Reading (minutes)
+                <input type="number" id="reading" min="0" step="5">
+            </label>
+
+            <label class="check">
+                <input type="checkbox" id="workout">
+                Workout done
+            </label>
+
+            <div class="buttons">
+                <button id="saveBtn">Save</button>
+                <button id="deleteBtn">Delete this day</button>
+                <button id="resetBtn">Reset all data</button>
+            </div>
+
+            <p id="message"></p>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
