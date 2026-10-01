@@ -20,8 +20,6 @@ body {
     padding: 32px;
 }
 
-/* Main heading */
-
 h1 {
     font-size: 34px;
     margin: 0 0 8px 0;
@@ -34,19 +32,16 @@ h1 {
     color: #aebdce;
 }
 
-/* Dashboard sections */
-
 .stats,
 #heatmap,
 .form,
 #info,
-.legend {
+.legend,
+.tasks-list {
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.10);
     backdrop-filter: blur(12px);
 }
-
-/* Statistics */
 
 .stats {
     border-collapse: separate;
@@ -73,15 +68,11 @@ h1 {
     width: 30%;
 }
 
-/* Section headings */
-
 h2 {
     font-size: 21px;
     margin: 34px 0 14px 0;
     color: #ffffff;
 }
-
-/* Heatmap */
 
 #heatmap {
     display: grid;
@@ -112,6 +103,11 @@ h2 {
     cursor: default;
 }
 
+.cell.future {
+    opacity: 0.45;
+    cursor: default;
+}
+
 .cell[data-level="1"],
 .box[data-level="1"] {
     background: #9be9a8;
@@ -137,8 +133,6 @@ h2 {
     outline-offset: 2px;
 }
 
-/* Legend */
-
 .legend {
     margin-top: 12px;
     padding: 10px 14px;
@@ -156,8 +150,6 @@ h2 {
     border-radius: 3px;
 }
 
-/* Information */
-
 #info {
     margin-top: 12px;
     min-height: 20px;
@@ -165,8 +157,6 @@ h2 {
     border-radius: 10px;
     color: #cbd5e1;
 }
-
-/* Form */
 
 .form {
     max-width: 400px;
@@ -180,6 +170,7 @@ h2 {
     color: #dbe5f0;
 }
 
+.form input[type="text"],
 .form input[type="number"],
 .form input[type="date"] {
     display: block;
@@ -194,6 +185,10 @@ h2 {
     outline: none;
 }
 
+.form input::placeholder {
+    color: #8090a3;
+}
+
 .form input:focus {
     border-color: #40c463;
     box-shadow: 0 0 0 2px rgba(64, 196, 99, 0.15);
@@ -202,12 +197,6 @@ h2 {
 .form input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1);
 }
-
-.form .check input {
-    margin-right: 6px;
-}
-
-/* Buttons */
 
 .buttons {
     margin-top: 8px;
@@ -246,14 +235,150 @@ h2 {
     background: #991b1b;
 }
 
-/* Message */
-
 #message {
     margin-top: 12px;
     color: #6ee7a0;
 }
 
-/* Scrollbar */
+.tasks-list {
+    width: 100%;
+    border-radius: 14px;
+    padding: 14px;
+}
+
+.no-tasks {
+    color: #aebdce;
+    padding: 10px 4px;
+}
+
+.task-card {
+    padding: 16px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    background: rgba(255, 255, 255, 0.045);
+    border-radius: 10px;
+}
+
+.task-card:last-child {
+    margin-bottom: 0;
+}
+
+.task-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.task-name {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 16px;
+    word-break: break-word;
+}
+
+.task-percent {
+    color: #6ee7a0;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.task-times {
+    color: #aebdce;
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+.progress-track {
+    width: 100%;
+    height: 8px;
+    margin-top: 11px;
+    border-radius: 10px;
+    background: #263442;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background: #30a14e;
+    border-radius: 10px;
+    transition: width 0.25s ease;
+}
+
+.task-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 11px;
+}
+
+.task-buttons button {
+    padding: 7px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    color: #ffffff;
+    background: #216e39;
+    border: none;
+    border-radius: 7px;
+}
+
+.task-buttons button:hover {
+    background: #30a14e;
+}
+
+.task-buttons .secondary {
+    background: #374151;
+}
+
+.task-buttons .secondary:hover {
+    background: #4b5563;
+}
+
+.task-buttons .danger {
+    background: #7f1d1d;
+}
+
+.task-buttons .danger:hover {
+    background: #991b1b;
+}
+
+.timer-running {
+    color: #6ee7a0;
+    font-size: 12px;
+    margin-top: 7px;
+}
+
+.day-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.day-summary div {
+    padding: 12px;
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.day-summary span {
+    display: block;
+    color: #aebdce;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.day-summary strong {
+    color: #ffffff;
+}
+
+.task-actions-form {
+    margin-top: 14px;
+}
+
+#tasksTitle {
+    margin-top: 34px;
+}
 
 #heatmap::-webkit-scrollbar {
     height: 6px;
@@ -269,10 +394,7 @@ h2 {
     border-radius: 10px;
 }
 
-/* Mobile */
-
 @media (max-width: 600px) {
-
     .container {
         margin: 15px auto;
         padding: 18px;
@@ -289,5 +411,14 @@ h2 {
 
     .form {
         max-width: none;
+    }
+
+    .task-top {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .day-summary {
+        grid-template-columns: 1fr;
     }
 }
