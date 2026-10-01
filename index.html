@@ -11,7 +11,7 @@
     <div class="container">
 
         <h1>Productivity Heatmap</h1>
-        <p class="subtitle">Enter what you did each day and see it on the map below.</p>
+        <p class="subtitle">Add your own tasks, track the time you spend, and see your productivity on the map below.</p>
 
         <table class="stats">
             <tr>
@@ -21,20 +21,20 @@
                 <td id="bestStreak">0 days</td>
             </tr>
             <tr>
-                <td>Study total</td>
-                <td id="studyTotal">0 hrs</td>
-                <td>Coding total</td>
-                <td id="codingTotal">0 hrs</td>
+                <td>Total target</td>
+                <td id="targetTotal">0 hrs</td>
+                <td>Total completed</td>
+                <td id="completedTotal">0 hrs</td>
             </tr>
             <tr>
-                <td>DSA problems</td>
-                <td id="dsaTotal">0</td>
-                <td>Average score</td>
+                <td>Total tasks</td>
+                <td id="taskTotal">0</td>
+                <td>Average productivity</td>
                 <td id="avgScore">0%</td>
             </tr>
         </table>
 
-        <h2>Last 12 months</h2>
+        <h2 id="heatmapTitle">Year</h2>
         <div id="heatmap"></div>
 
         <div class="legend">
@@ -48,47 +48,54 @@
         </div>
         <p id="info">Click a square to see that day.</p>
 
-        <h2>Add activity</h2>
+        <h2>Add your tasks</h2>
         <div class="form">
 
             <label>Date
                 <input type="date" id="date">
             </label>
 
-            <label>Study (hours)
-                <input type="number" id="study" min="0" step="0.5">
+            <label>Task name
+                <input type="text" id="taskName" placeholder="e.g. Java DSA, Gym, Project work">
             </label>
 
-            <label>Coding (hours)
-                <input type="number" id="coding" min="0" step="0.5">
-            </label>
-
-            <label>DSA problems
-                <input type="number" id="dsa" min="0" step="1">
-            </label>
-
-            <label>Reading (minutes)
-                <input type="number" id="reading" min="0" step="5">
-            </label>
-
-            <label class="check">
-                <input type="checkbox" id="workout">
-                Workout done
+            <label>Target time (minutes)
+                <input type="number" id="targetMinutes" min="1" step="1" placeholder="e.g. 120">
             </label>
 
             <div class="buttons">
-                <button id="saveBtn">Save</button>
-                <button id="deleteBtn">Delete this day</button>
-                <button id="resetBtn">Reset all data</button>
+                <button id="addTaskBtn">Add task</button>
             </div>
 
             <p id="message"></p>
         </div>
 
+        <h2 id="tasksTitle">Tasks for selected day</h2>
+        <div id="tasksList" class="tasks-list"></div>
+
+        <div class="form task-actions-form">
+            <div class="day-summary">
+                <div>
+                    <span>Target</span>
+                    <strong id="dayTarget">0 min</strong>
+                </div>
+                <div>
+                    <span>Completed</span>
+                    <strong id="dayCompleted">0 min</strong>
+                </div>
+                <div>
+                    <span>Productivity</span>
+                    <strong id="dayScore">0%</strong>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button id="deleteBtn">Delete this day</button>
+                <button id="resetBtn">Reset all data</button>
+            </div>
+        </div>
+
     </div>
-    <footer class="footer">
-    <p>Developed by <strong>Srivardhan Reddy</strong></p>
-</footer>
 
     <script src="script.js"></script>
 </body>
